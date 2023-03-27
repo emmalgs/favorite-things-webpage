@@ -7,7 +7,7 @@ function userInfo(e) {
     console.log(favs)
     favs.push(color, movie, fish)
     arrayStuff()
-
+    displayInput()
 }
 
 const newFavs = []
@@ -18,8 +18,22 @@ function arrayStuff() {
     newFavs.push(movie, color, fish)
 }
 
+function displayInput() {
+    const ul = document.createElement("ul");
+    document.querySelector("form").after(ul);
+
+    const li1 = document.createElement("li");
+    const li2 = document.createElement("li");
+    const li3 = document.createElement("li");
+    li1.append(newFavs[0]);
+    li2.append(newFavs[1]);
+    li3.append(newFavs[2]);
+    ul.append(li1);
+    ul.append(li2);
+    ul.append(li3);
+}
 
 window.addEventListener("load", function(){
     document.querySelector("form").addEventListener("submit", userInfo);
-    
+
 })
